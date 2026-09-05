@@ -1,0 +1,46 @@
+{
+  "name": "dsh-ui-tint",
+  "version": "0.1.0",
+  "description": "DSH Web UI 主题色扩展插件：在深色/浅色之外提供咖啡深褐、拿铁浅咖、抹茶青绿等更多配色，并可在设置页一键切换。完全独立于 DSH 本体（只在用户目录 profile 中挂载，仅使用公开的 theme / settings / slot 扩展点），DSH 升级不会覆盖或破坏它。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "theme",
+    "skin",
+    "coffee"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "scripts": {
+    "check": "node --check lib/index.js && node --check lib/client.js"
+  },
+  "dependencies": {},
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-theme",
+        "@deepseek-ai/dsh-client-modules"
+      ],
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "license": "MIT"
+}

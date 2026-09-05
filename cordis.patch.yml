@@ -1,0 +1,17 @@
+# ============================================================================
+# dsh-ui-tint —— 主题色（咖啡/拿铁/抹茶等）扩展插件 · bundle patch
+# ============================================================================
+# 这是插件的"挂载声明"。DSH 启动时按 bundle 层栈叠加各插件 patch，
+# 本文件把主题色插件插入 Web profile 的配置树。
+#
+# 安装方式：
+#   dsh plugin --profile web add link:~/dsh-ui-tint
+# 卸载方式：
+#   dsh plugin --profile web remove dsh-ui-tint
+#
+# 该行只在 bundle 层激活；宿主与浏览器两半都通过 DSH 公开扩展点工作
+# （host: settings 命名空间 + webserver/index-inject 首屏注入；
+#  client: ctx.theme.register 主题注册 + settings.general.item 设置行）。
+- insert:
+    - id: ui-tint
+      name: 'dsh-ui-tint'
